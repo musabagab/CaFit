@@ -49,6 +49,7 @@ flutter:
   assets:
       - lib/assets/images/running_woman.png
       - lib/assets/images/weight_woman.png
+      - lib/assets/images/manwithwoman.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

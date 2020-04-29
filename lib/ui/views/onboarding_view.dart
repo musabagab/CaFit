@@ -4,7 +4,6 @@ import 'package:provider_architecture/core/viewmodels/onboarding_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart' as prefix0;
 
 import 'package:provider_architecture/ui/views/base_view.dart';
-import 'package:provider_architecture/ui/widgets/onboarding_title.dart';
 
 import '../shared/app_colors.dart';
 
@@ -22,25 +21,11 @@ class OnBoardingView extends StatelessWidget {
                 color: primaryColor.withOpacity(.3),
               ),
               globalBackgroundColor: backgroundColor,
-              pages: getPages(model),
+              pages: model.getPages(),
               onDone: () {},
               done: Text("Done")),
         ),
       ),
     );
-  }
-
-  List<PageViewModel> getPages(OnboardingModel model) {
-    return [
-      PageViewModel(
-          titleWidget: OnBoardingTitle("Have a good health"),
-          bodyWidget: model.renderPage(model.runningWomanSVG)),
-      PageViewModel(
-          titleWidget: OnBoardingTitle("Be stronger"),
-          bodyWidget: model.renderPage(model.weightWomanSVG)),
-      PageViewModel(
-          titleWidget: OnBoardingTitle("Have a nice body"),
-          bodyWidget: model.renderPage(model.runningWomanSVG)),
-    ];
   }
 }
