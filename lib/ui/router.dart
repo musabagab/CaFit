@@ -3,7 +3,6 @@ import 'package:provider_architecture/ui/views/onboarding_view.dart';
 
 import '../core/models/post.dart';
 import 'views/home_view.dart';
-import 'views/login_view.dart';
 import 'views/post_view.dart';
 
 class Router {
@@ -11,8 +10,6 @@ class Router {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => HomeView());
-      case 'login':
-        return MaterialPageRoute(builder: (_) => LoginView());
       case 'onboarding':
         return MaterialPageRoute(builder: (_) => OnBoardingView());
       case 'post':
