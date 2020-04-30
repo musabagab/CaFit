@@ -8,6 +8,7 @@ import 'package:provider_architecture/ui/views/base_view.dart';
 import '../shared/app_colors.dart';
 
 class OnBoardingView extends StatelessWidget {
+  String s = "";
   @override
   Widget build(BuildContext context) {
     return BaseView<OnboardingModel>(
