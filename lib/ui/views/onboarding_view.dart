@@ -22,8 +22,10 @@ class OnBoardingView extends StatelessWidget {
               ),
               globalBackgroundColor: backgroundColor,
               pages: model.getPages(),
-              onDone: () {},
-              done: Text("Done")),
+              onDone: () {
+                model.start();
+              },
+              done: Text("Start")),
         ),
       ),
     );

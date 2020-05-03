@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:provider_architecture/core/services/localstorage_service.dart';
 import 'package:provider_architecture/core/viewmodels/base_model.dart';
+import 'package:provider_architecture/locator.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/text_styles.dart';
 import 'package:provider_architecture/ui/widgets/onboarding_title.dart';
@@ -9,6 +11,8 @@ class OnboardingModel extends BaseModel {
   final String runningWomanSVG = 'lib/assets/images/running_woman.png';
   final String weightWomanSVG = 'lib/assets/images/weight_woman.png';
   final String manWithWoman = 'lib/assets/images/manwithwoman.png';
+
+  var storageService = locator<LocalStorageService>();
 
   Widget renderPage(String assetName) {
     final Widget svgImage = Image.asset(assetName);
@@ -59,4 +63,6 @@ class OnboardingModel extends BaseModel {
           bodyWidget: renderPage(manWithWoman)),
     ];
   }
+
+  void start() {}
 }
