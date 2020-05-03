@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:provider_architecture/core/viewmodels/onboarding_model.dart';
+import 'package:provider_architecture/ui/router.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart' as prefix0;
 import 'package:provider_architecture/ui/shared/text_styles.dart';
 
 import 'package:provider_architecture/ui/views/base_view.dart';
+import 'package:provider_architecture/ui/views/home_view.dart';
 import 'package:provider_architecture/ui/widgets/onboarding_title.dart';
 
 import '../shared/app_colors.dart';
@@ -30,6 +32,7 @@ class OnBoardingView extends StatelessWidget {
               pages: getPages(),
               onDone: () {
                 model.start();
+                Navigator.pushNamed(context, Router.HOME);
               },
               done: Text("Start")),
         ),
