@@ -23,9 +23,9 @@ class LocalStorageService {
     return value;
   }
 
-  void saveStringToDisk(String key, bool content) {
+  void saveBoolToDisk(String key, bool content) {
     print(
-        '(TRACE) LocalStorageService:_saveStringToDisk. key: $key value: $content');
+        '(TRACE) LocalStorageService:_saveBoolToDisk. key: $key value: $content');
     _preferences.setBool(UserStartKey, content);
   }
 }

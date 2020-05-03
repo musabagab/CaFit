@@ -3,8 +3,8 @@ import 'package:provider_architecture/locator.dart';
 import 'package:provider_architecture/ui/router.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 
-void main() {
-  setupLocator();
+Future<void> main() async {
+  await setupLocator();
   runApp(MyApp());
 }
 
