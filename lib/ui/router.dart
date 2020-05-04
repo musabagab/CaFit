@@ -3,8 +3,9 @@ import 'package:provider_architecture/ui/views/home_view.dart';
 import 'package:provider_architecture/ui/views/onboarding_view.dart';
 
 class Router {
-  static const String ONBOARDING = "onboarding";
-  static const String HOME = "home";
+  static const ONBOARDING = "onboarding";
+  static const HOME = "home";
+  static const START = "start";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {

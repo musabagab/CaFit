@@ -3,9 +3,16 @@ import 'package:provider_architecture/locator.dart';
 import 'package:provider_architecture/ui/router.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 
+import 'core/services/localstorage_service.dart';
+import 'core/services/navigation_service.dart';
+
 Future<void> main() async {
-  await setupLocator();
-  runApp(MyApp());
+  try {
+    await setupLocator();
+    runApp(MyApp());
+  } catch (error) {
+    print('Locator setup has failed!');
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -15,8 +22,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Carfit',
       theme: ThemeData(primaryColor: primaryColor),
-      initialRoute: 'onboarding',
+      navigatorKey: locator<NavigationService>().navigatorKey,
+      initialRoute: _getStartupScreen(),
       onGenerateRoute: Router.generateRoute,
     );
+  }
+
+  String _getStartupScreen() {
+    var localStorageService = locator<LocalStorageService>();
+
+    if (!localStorageService.hasLoggedIn) {
+      return Router.ONBOARDING;
+    } else {
+      return Router.HOME;
+    }
   }
 }
