@@ -26,12 +26,17 @@ class OnBoardingView extends StatelessWidget {
                 activeColor: prefix0.primaryColor.withOpacity(.9),
                 color: primaryColor.withOpacity(.3),
               ),
-              globalBackgroundColor: backgroundColor,
+              globalBackgroundColor: primaryColor,
               pages: getPages(),
               onDone: () {
                 model.start();
               },
-              done: Text("Start")),
+              done: FlatButton(
+                onPressed: () {
+                  model.start();
+                },
+                child: Text("Start"),
+              )),
         ),
       ),
     );
@@ -44,7 +49,7 @@ class OnBoardingView extends StatelessWidget {
       footer: Text(
         bodyText,
         textAlign: TextAlign.center,
-        style: subHeaderStyle,
+        style: pageBodyStyle,
       ),
       bodyWidget: renderPage(pageAssetName),
     );
@@ -81,7 +86,7 @@ class OnBoardingView extends StatelessWidget {
             width: 300.0,
             height: 300.0,
             decoration: new BoxDecoration(
-              color: primaryColor.withOpacity(.2),
+              color: Colors.white,
               shape: BoxShape.circle,
             ),
           ),
