@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Carfit',
-      theme: ThemeData(primaryColor: primaryColor),
+      theme: ThemeData(primaryColor: primaryColor, fontFamily: 'Quicksand'),
       navigatorKey: locator<NavigationService>().navigatorKey,
       initialRoute: _getStartupScreen(),
       onGenerateRoute: Router.generateRoute,
@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
   }
 
   String _getStartupScreen() {
+    return Router.ONBOARDING;
     var localStorageService = locator<LocalStorageService>();
 
     if (!localStorageService.hasLoggedIn) {
