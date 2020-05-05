@@ -10,8 +10,8 @@ import 'package:provider_architecture/ui/widgets/onboarding_title.dart';
 import '../shared/app_colors.dart';
 
 class OnBoardingView extends StatelessWidget {
-  final String runningWomanSVG = 'lib/assets/images/running_woman.png';
-  final String weightWomanSVG = 'lib/assets/images/weight_woman.png';
+  final String runningWoman = 'lib/assets/images/running_woman.png';
+  final String weightWoman = 'lib/assets/images/weight_woman.png';
   final String manWithWoman = 'lib/assets/images/manwithwoman.png';
 
   @override
@@ -37,36 +37,38 @@ class OnBoardingView extends StatelessWidget {
     );
   }
 
+  PageViewModel createPage(
+      String title, String bodyText, String pageAssetName) {
+    return PageViewModel(
+      titleWidget: OnBoardingTitle(title),
+      footer: Text(
+        bodyText,
+        textAlign: TextAlign.center,
+        style: subHeaderStyle,
+      ),
+      bodyWidget: renderPage(pageAssetName),
+    );
+  }
+
   List<PageViewModel> getPages() {
-    return [
-      PageViewModel(
-        titleWidget: OnBoardingTitle("Have a good health"),
-        footer: Text(
-          "Being healthy is all, no health is nothing.\nSo why do not we",
-          textAlign: TextAlign.center,
-          style: subHeaderStyle,
-        ),
-        bodyWidget: renderPage(runningWomanSVG),
+    var list = [
+      createPage(
+        "Have a good health",
+        "Being healthy is all, no health is nothing.\nSo why do not we",
+        runningWoman,
       ),
-      PageViewModel(
-        titleWidget: OnBoardingTitle("Be stronger"),
-        footer: Text(
-          "Take 30 minutes of bodybuilding every day\nto get physically fit and healthy.",
-          textAlign: TextAlign.center,
-          style: subHeaderStyle,
-        ),
-        bodyWidget: renderPage(weightWomanSVG),
+      createPage(
+        "Be stronger",
+        "Take 30 minutes of bodybuilding every day\nto get physically fit and healthy.",
+        weightWoman,
       ),
-      PageViewModel(
-        titleWidget: OnBoardingTitle("Have a nice body"),
-        footer: Text(
-          "Bad body shape, poor sleep, lack of strength,\nweight gain, weak bones, easily traumatized\nbody, depressed, stressed, poor metabolism,\npoor resistance",
-          textAlign: TextAlign.center,
-          style: subHeaderStyle,
-        ),
-        bodyWidget: renderPage(manWithWoman),
+      createPage(
+        "Have a nice body",
+        "Bad body shape, poor sleep, lack of strength,\nweight gain, weak bones, easily traumatized\nbody, depressed, stressed, poor metabolism,\npoor resistance.",
+        manWithWoman,
       ),
     ];
+    return list;
   }
 
   Widget renderPage(String assetName) {
