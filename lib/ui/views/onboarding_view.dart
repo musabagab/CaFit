@@ -21,22 +21,25 @@ class OnBoardingView extends StatelessWidget {
         backgroundColor: backgroundColor,
         body: SafeArea(
           child: IntroductionScreen(
-              showNextButton: false,
-              dotsDecorator: DotsDecorator(
-                activeColor: prefix0.primaryColor.withOpacity(.9),
-                color: primaryColor.withOpacity(.3),
-              ),
-              globalBackgroundColor: primaryColor,
-              pages: getPages(),
-              onDone: () {
+            showNextButton: false,
+            dotsDecorator: DotsDecorator(
+              activeColor: prefix0.primaryColor.withOpacity(.9),
+              color: primaryColor.withOpacity(.3),
+            ),
+            globalBackgroundColor: Colors.white,
+            pages: getPages(),
+            onDone: () {
+              model.start();
+            },
+            done: FlatButton(
+              onPressed: () {
                 model.start();
               },
-              done: FlatButton(
-                onPressed: () {
-                  model.start();
-                },
-                child: Text("Start"),
-              )),
+              color: Colors.white,
+              textColor: prefix0.primaryColor,
+              child: Text("Start"),
+            ),
+          ),
         ),
       ),
     );
@@ -86,7 +89,7 @@ class OnBoardingView extends StatelessWidget {
             width: 300.0,
             height: 300.0,
             decoration: new BoxDecoration(
-              color: Colors.white,
+              color: prefix0.primaryColor.withOpacity(.2),
               shape: BoxShape.circle,
             ),
           ),

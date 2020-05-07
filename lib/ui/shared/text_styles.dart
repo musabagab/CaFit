@@ -16,5 +16,5 @@ const subHeaderStyle = TextStyle(
 const pageBodyStyle = TextStyle(
   fontSize: 14.0,
   fontWeight: FontWeight.w400,
-  color: Colors.white,
+  color: primaryColor,
 );
