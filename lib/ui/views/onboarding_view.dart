@@ -35,8 +35,12 @@ class OnBoardingView extends StatelessWidget {
               onPressed: () {
                 model.start();
               },
-              color: Colors.white,
-              textColor: prefix0.primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+                side: BorderSide(color: Colors.red),
+              ),
+              color: prefix0.primaryColor,
+              textColor: Colors.white,
               child: Text("Start"),
             ),
           ),
