@@ -29,13 +29,12 @@ class MyApp extends StatelessWidget {
   }
 
   String _getStartupScreen() {
-    return Router.ONBOARDING;
     var localStorageService = locator<LocalStorageService>();
 
     if (!localStorageService.hasLoggedIn) {
       return Router.ONBOARDING;
     } else {
-      return Router.HOME;
+      return Router.MENU;
     }
   }
 }
