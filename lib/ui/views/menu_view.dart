@@ -8,10 +8,27 @@ class MenuView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<MenuModel>(
       builder: (context, model, child) => Scaffold(
+        appBar: AppBar(
+          title: Center(
+              child: Text(
+            "Workout Categories",
+            style: appBarTitleStyle,
+          )),
+        ),
         body: SafeArea(
-          child: Text(
-            "Hello menu is here",
-            style: headerStyle,
+          child: ListView.builder(
+            itemCount: model.workoutCategories.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                child: Card(
+                    child: Column(
+                  children: <Widget>[
+                    Image.network(
+                        model.workoutCategories.elementAt(index).photoUrl)
+                  ],
+                )),
+              );
+            },
           ),
         ),
       ),

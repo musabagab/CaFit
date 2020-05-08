@@ -18,3 +18,9 @@ const pageBodyStyle = TextStyle(
   fontWeight: FontWeight.w400,
   color: primaryColor,
 );
+
+const appBarTitleStyle = TextStyle(
+  fontSize: 24.0,
+  fontWeight: FontWeight.w400,
+  color: Colors.black,
+);
