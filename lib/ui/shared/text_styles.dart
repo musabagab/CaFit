@@ -19,8 +19,20 @@ const pageBodyStyle = TextStyle(
   color: primaryColor,
 );
 
-const appBarTitleStyle = TextStyle(
-  fontSize: 24.0,
+const categoryDescStyle = TextStyle(
+  fontSize: 18.0,
   fontWeight: FontWeight.w400,
   color: Colors.black,
+);
+
+const appBarTitleStyle = TextStyle(
+  fontSize: 24.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+const categoryButtonTextStyle = TextStyle(
+  fontSize: 14.0,
+  fontWeight: FontWeight.w900,
+  color: primaryColor,
 );
