@@ -21,8 +21,8 @@ class MenuView extends StatelessWidget {
             padding: EdgeInsets.only(left: 8, right: 8, top: 8),
             itemCount: model.workoutCategories.length,
             itemBuilder: (BuildContext context, int index) {
-              return buildCategoryItem(
-                  model.workoutCategories.elementAt(index));
+              return buildCategoryItem(model.workoutCategories.elementAt(index),
+                  model.navigateToInstructions);
             },
           ),
         ),
@@ -30,7 +30,8 @@ class MenuView extends StatelessWidget {
     );
   }
 
-  Container buildCategoryItem(WorkoutCategory category) {
+  Container buildCategoryItem(
+      WorkoutCategory category, void Function() navigateToInstructions) {
     return Container(
       height: 400,
       padding: EdgeInsets.all(8),
@@ -49,7 +50,7 @@ class MenuView extends StatelessWidget {
                   bottom: 10,
                   left: 10,
                   child: Text(
-                    'Classic',
+                    category.name,
                     style: categoryTitleStyle,
                   ),
                 ),
@@ -72,7 +73,7 @@ class MenuView extends StatelessWidget {
                       'INSTRUCTIONS',
                       style: categoryButtonTextStyle,
                     ),
-                    onPressed: () {/* ... */},
+                    onPressed: navigateToInstructions,
                   ),
                   FlatButton(
                     child: const Text(
