@@ -33,6 +33,12 @@ const appBarTitleStyle = TextStyle(
 
 const categoryButtonTextStyle = TextStyle(
   fontSize: 14.0,
-  fontWeight: FontWeight.w900,
+  fontWeight: FontWeight.w800,
   color: primaryColor,
+);
+
+const categoryTitleStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.w500,
+  color: Colors.white,
 );

@@ -39,9 +39,21 @@ class MenuView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Image.network(
-              category.photoUrl,
-              fit: BoxFit.contain,
+            Stack(
+              children: <Widget>[
+                Image.network(
+                  category.photoUrl,
+                  fit: BoxFit.contain,
+                ),
+                Positioned(
+                  bottom: 10,
+                  left: 10,
+                  child: Text(
+                    'Classic',
+                    style: categoryTitleStyle,
+                  ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
