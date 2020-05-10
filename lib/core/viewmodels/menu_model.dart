@@ -7,13 +7,17 @@ import 'package:provider_architecture/ui/router.dart';
 class MenuModel extends BaseModel {
   List<WorkoutCategory> workoutCategories = [
     WorkoutCategory(
-        "Classic",
-        "Scientifically proven ways to lose weight and improve health",
-        "https://cdn9.dissolve.com/p/D187_254_013/D187_254_013_1200.jpg"),
-    WorkoutCategory("Leg", "Proven to assits weight lose",
-        "https://cdn9.dissolve.com/p/D187_254_013/D187_254_013_1200.jpg"),
-    WorkoutCategory("Abs", "Proven to assits weight lose",
-        "https://cdn9.dissolve.com/p/D187_254_013/D187_254_013_1200.jpg")
+        "Full body workout",
+        "Scientifically proven to assist weight loss and improve cardiovascular function.",
+        "lib/assets/images/fullbody.jpg"),
+    WorkoutCategory(
+        "Leg workout",
+        "Want slim and toned legs? Strengthen and tighten your lower body now!",
+        "lib/assets/images/legs.jpg"),
+    WorkoutCategory(
+        "Arm workout",
+        "Several minutes a day to have nice and toned arms in no time!",
+        "lib/assets/images/arm.jpg")
   ];
 
   final NavigationService _navigationService = locator<NavigationService>();

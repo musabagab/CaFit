@@ -31,7 +31,7 @@ class MenuView extends StatelessWidget {
   }
 
   Container buildCategoryItem(
-      WorkoutCategory category, void Function() navigateToInstructions) {
+      WorkoutCategory category, navigateToInstructions) {
     return Container(
       height: 400,
       padding: EdgeInsets.all(8),
@@ -42,9 +42,9 @@ class MenuView extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: <Widget>[
-                Image.network(
+                Image.asset(
                   category.photoUrl,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fitWidth,
                 ),
                 Positioned(
                   bottom: 10,
