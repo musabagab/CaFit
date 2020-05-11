@@ -14,6 +14,6 @@ class OnboardingModel extends BaseModel {
   }
 
   void navigateToHome() {
-    _navigationService.navigateTo(Router.MENU);
+    _navigationService.navigateAndReplace(Router.MENU);
   }
 }
