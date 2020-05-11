@@ -22,7 +22,7 @@ class MenuModel extends BaseModel {
 
   final NavigationService _navigationService = locator<NavigationService>();
 
-  void navigateToInstructions() {
-    _navigationService.navigateTo(Router.INSTRUCTIONS);
+  void navigateToInstructions(String categoryName) {
+    _navigationService.navigateTo(Router.INSTRUCTIONS, arguments: categoryName);
   }
 }

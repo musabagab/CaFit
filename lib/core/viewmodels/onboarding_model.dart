@@ -10,10 +10,10 @@ class OnboardingModel extends BaseModel {
 
   void start() {
     storageService.hasLoggedIn = true;
-    navigateToHome();
+    navigateToMenu();
   }
 
-  void navigateToHome() {
+  void navigateToMenu() {
     _navigationService.navigateAndReplace(Router.MENU);
   }
 }

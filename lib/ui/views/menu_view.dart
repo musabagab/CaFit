@@ -73,7 +73,9 @@ class MenuView extends StatelessWidget {
                       'INSTRUCTIONS',
                       style: categoryButtonTextStyle,
                     ),
-                    onPressed: navigateToInstructions,
+                    onPressed: () {
+                      navigateToInstructions(category.name);
+                    },
                   ),
                   FlatButton(
                     child: const Text(
