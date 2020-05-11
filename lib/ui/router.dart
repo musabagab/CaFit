@@ -16,7 +16,9 @@ class Router {
       case MENU:
         return MaterialPageRoute(builder: (_) => MenuView());
       case INSTRUCTIONS:
-        return MaterialPageRoute(builder: (_) => InstructionsView());
+        var categoryName = settings.arguments as String;
+        return MaterialPageRoute(
+            builder: (_) => InstructionsView(categoryName));
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(
