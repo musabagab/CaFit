@@ -30,6 +30,10 @@ class _InstructionsViewState extends State<InstructionsView>
               return new Future(() => false);
             },
             child: Scaffold(
+              body: TabBarView(
+                controller: model.getController(),
+                children: [Text('Full Body'), Text('Legs'), Text('Arms')],
+              ),
               appBar: AppBar(
                 leading: BackButton(),
                 title: Text(

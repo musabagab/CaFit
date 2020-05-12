@@ -84,23 +84,23 @@ class OnBoardingView extends StatelessWidget {
   }
 
   Widget renderPage(String assetName) {
-    final Widget svgImage = Image.asset(assetName);
-    Widget myWidget = Center(
-        child: Stack(
-      children: <Widget>[
-        Center(
-          child: Container(
-            width: 300.0,
-            height: 300.0,
-            decoration: new BoxDecoration(
-              color: prefix0.primaryColor.withOpacity(.2),
-              shape: BoxShape.circle,
+    final Widget pageImage = Image.asset(assetName);
+    return Center(
+      child: Stack(
+        children: <Widget>[
+          Center(
+            child: Container(
+              width: 300.0,
+              height: 300.0,
+              decoration: new BoxDecoration(
+                color: prefix0.primaryColor.withOpacity(.2),
+                shape: BoxShape.circle,
+              ),
             ),
           ),
-        ),
-        Center(child: svgImage),
-      ],
-    ));
-    return myWidget;
+          Center(child: pageImage),
+        ],
+      ),
+    );
   }
 }
