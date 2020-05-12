@@ -5,11 +5,13 @@ import 'package:provider_architecture/locator.dart';
 
 class InstructionsModel extends BaseModel {
   final NavigationService _navigationService = locator<NavigationService>();
+
   List<String> categoryies = [
     "Full body workout",
     "Leg workout",
     "Arm workout"
   ];
+
   var _tabController;
 
   void navigateBack() {
