@@ -25,11 +25,21 @@ class CategoryItem extends StatelessWidget {
                   fit: BoxFit.fitWidth,
                 ),
                 Positioned(
-                  bottom: 10,
-                  left: 10,
-                  child: Text(
-                    category.name,
-                    style: categoryTitleStyle,
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          colors: [Colors.black, Colors.transparent],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter),
+                    ),
+                    child: Text(
+                      category.name,
+                      style: categoryTitleStyle,
+                    ),
                   ),
                 ),
               ],

@@ -49,13 +49,13 @@ class _InstructionsViewState extends State<InstructionsView>
                   },
                   tabs: [
                     Tab(
-                      text: "Full Body",
+                      text: "FULL BODY",
                     ),
                     Tab(
-                      text: "Legs",
+                      text: "LEGS",
                     ),
                     Tab(
-                      text: "Arm",
+                      text: "ARM",
                     ),
                   ],
                 ),
