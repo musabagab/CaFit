@@ -52,7 +52,7 @@ class _InstructionsViewState extends State<InstructionsView>
                       text: "FULL BODY",
                     ),
                     Tab(
-                      text: "LEGS",
+                      text: "LEG",
                     ),
                     Tab(
                       text: "ARM",
