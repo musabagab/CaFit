@@ -5,7 +5,8 @@ import 'package:provider_architecture/ui/shared/app_colors.dart' as prefix0;
 import 'package:provider_architecture/ui/shared/text_styles.dart';
 
 import 'package:provider_architecture/ui/views/base_view.dart';
-import 'package:provider_architecture/ui/widgets/onboarding_title.dart';
+import 'package:provider_architecture/ui/widgets/onboarding_widgets/onboarding_title.dart';
+import 'package:provider_architecture/ui/widgets/onboarding_widgets/page_body.dart';
 
 import '../shared/app_colors.dart';
 
@@ -85,22 +86,6 @@ class OnBoardingView extends StatelessWidget {
 
   Widget renderPage(String assetName) {
     final Widget pageImage = Image.asset(assetName);
-    return Center(
-      child: Stack(
-        children: <Widget>[
-          Center(
-            child: Container(
-              width: 300.0,
-              height: 300.0,
-              decoration: new BoxDecoration(
-                color: prefix0.primaryColor.withOpacity(.2),
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Center(child: pageImage),
-        ],
-      ),
-    );
+    return PageBody(pageImage: pageImage);
   }
 }
