@@ -23,7 +23,7 @@ class _InstructionsViewState extends State<InstructionsView>
       builder: (context, model, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         home: DefaultTabController(
-          length: 3,
+          length: model.categoryies.length,
           child: WillPopScope(
             onWillPop: () {
               model.navigateBack();
