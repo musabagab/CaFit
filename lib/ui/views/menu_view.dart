@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider_architecture/core/models/workout_category.dart';
 import 'package:provider_architecture/core/viewmodels/menu_model.dart';
 import 'package:provider_architecture/ui/shared/text_styles.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
@@ -22,16 +21,12 @@ class MenuView extends StatelessWidget {
             padding: EdgeInsets.only(left: 8, right: 8, top: 8),
             itemCount: model.workoutCategories.length,
             itemBuilder: (BuildContext context, int index) {
-              return buildCategoryItem(model.workoutCategories.elementAt(index),
+              return CategoryItem(model.workoutCategories.elementAt(index),
                   model.navigateToInstructions);
             },
           ),
         ),
       ),
     );
-  }
-
-  Widget buildCategoryItem(WorkoutCategory category, navigateToInstructions) {
-    return CategoryItem(category, navigateToInstructions);
   }
 }
