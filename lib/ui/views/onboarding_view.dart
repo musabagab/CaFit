@@ -11,10 +11,6 @@ import 'package:provider_architecture/ui/widgets/onboarding_widgets/page_body.da
 import '../shared/app_colors.dart';
 
 class OnBoardingView extends StatelessWidget {
-  final String runningWoman = 'lib/assets/images/running_woman.png';
-  final String weightWoman = 'lib/assets/images/weight_woman.png';
-  final String manWithWoman = 'lib/assets/images/manwithwoman.png';
-
   @override
   Widget build(BuildContext context) {
     return BaseView<OnboardingModel>(
@@ -28,25 +24,29 @@ class OnBoardingView extends StatelessWidget {
               color: primaryColor.withOpacity(.3),
             ),
             globalBackgroundColor: Colors.white,
-            pages: getPages(),
+            pages: getPages(model),
             onDone: () {
               model.start();
             },
-            done: FlatButton(
-              onPressed: () {
-                model.start();
-              },
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0),
-                side: BorderSide(color: Colors.red),
-              ),
-              color: prefix0.primaryColor,
-              textColor: Colors.white,
-              child: Text("Start"),
-            ),
+            done: buildRoundedDoneButton(model),
           ),
         ),
       ),
+    );
+  }
+
+  FlatButton buildRoundedDoneButton(OnboardingModel model) {
+    return FlatButton(
+      onPressed: () {
+        model.start();
+      },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18.0),
+        side: BorderSide(color: Colors.red),
+      ),
+      color: prefix0.primaryColor,
+      textColor: Colors.white,
+      child: Text("Start"),
     );
   }
 
@@ -63,22 +63,22 @@ class OnBoardingView extends StatelessWidget {
     );
   }
 
-  List<PageViewModel> getPages() {
+  List<PageViewModel> getPages(OnboardingModel model) {
     var list = [
       createPage(
         "Have a good health",
         "Being healthy is all, no health is nothing.\nSo why do not we",
-        runningWoman,
+        model.runningWoman,
       ),
       createPage(
         "Be stronger",
         "Take 30 minutes of bodybuilding every day\nto get physically fit and healthy.",
-        weightWoman,
+        model.weightWoman,
       ),
       createPage(
         "Have a nice body",
         "Bad body shape, poor sleep, lack of strength,\nweight gain, weak bones, easily traumatized\nbody, depressed, stressed, poor metabolism,\npoor resistance.",
-        manWithWoman,
+        model.manWithWoman,
       ),
     ];
     return list;

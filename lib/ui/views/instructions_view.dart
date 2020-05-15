@@ -47,17 +47,7 @@ class _InstructionsViewState extends State<InstructionsView>
                   onTap: (tabedIndex) {
                     model.getController().animateTo(tabedIndex);
                   },
-                  tabs: [
-                    Tab(
-                      text: "FULL BODY",
-                    ),
-                    Tab(
-                      text: "LEG",
-                    ),
-                    Tab(
-                      text: "ARM",
-                    ),
-                  ],
+                  tabs: buildTaps(),
                 ),
               ),
             ),
@@ -65,5 +55,19 @@ class _InstructionsViewState extends State<InstructionsView>
         ),
       ),
     );
+  }
+
+  List<Widget> buildTaps() {
+    return [
+      Tab(
+        text: "FULL BODY",
+      ),
+      Tab(
+        text: "LEG",
+      ),
+      Tab(
+        text: "ARM",
+      ),
+    ];
   }
 }
