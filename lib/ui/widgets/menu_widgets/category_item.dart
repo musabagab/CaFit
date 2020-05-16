@@ -5,8 +5,10 @@ import 'package:provider_architecture/ui/shared/text_styles.dart';
 class CategoryItem extends StatelessWidget {
   final WorkoutCategory category;
   final Function navigateToInstructions;
+  final Function navigateToStartworkout;
 
-  CategoryItem(this.category, this.navigateToInstructions);
+  CategoryItem(
+      this.category, this.navigateToInstructions, this.navigateToStartworkout);
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +72,9 @@ class CategoryItem extends StatelessWidget {
                       'START',
                       style: categoryButtonTextStyle,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateToStartworkout(category.name);
+                    },
                   ),
                 ],
               ),

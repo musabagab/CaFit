@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/viewmodels/instructions_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart' as prefix0;
-import 'package:provider_architecture/ui/shared/text_styles.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
+import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 
 class InstructionsView extends StatefulWidget {
   final String categoryName;
@@ -24,31 +24,25 @@ class _InstructionsViewState extends State<InstructionsView>
         debugShowCheckedModeBanner: false,
         home: DefaultTabController(
           length: model.categoryies.length,
-          child: WillPopScope(
-            onWillPop: () {
-              model.navigateBack();
-              return new Future(() => false);
-            },
-            child: Scaffold(
-              body: TabBarView(
-                controller: model.getController(),
-                children: [Text('Full Body'), Text('Legs'), Text('Arms')],
+          child: Scaffold(
+            body: TabBarView(
+              controller: model.getController(),
+              children: [Text('Full Body'), Text('Legs'), Text('Arms')],
+            ),
+            appBar: AppBar(
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: () => Navigator.of(context).pop(),
               ),
-              appBar: AppBar(
-                leading: BackButton(),
-                title: Text(
-                  'Instructions',
-                  style: appBarTitleStyle,
-                ),
-                backgroundColor: prefix0.primaryColor,
-                bottom: TabBar(
-                  controller: model.getController(),
-                  indicatorColor: Colors.black,
-                  onTap: (tabedIndex) {
-                    model.getController().animateTo(tabedIndex);
-                  },
-                  tabs: buildTaps(),
-                ),
+              title: AppBarTitle('Instructions'),
+              backgroundColor: prefix0.primaryColor,
+              bottom: TabBar(
+                controller: model.getController(),
+                indicatorColor: Colors.black,
+                onTap: (tabedIndex) {
+                  model.getController().animateTo(tabedIndex);
+                },
+                tabs: buildTaps(),
               ),
             ),
           ),

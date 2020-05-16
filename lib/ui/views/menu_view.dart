@@ -22,7 +22,7 @@ class MenuView extends StatelessWidget {
             itemCount: model.workoutCategories.length,
             itemBuilder: (BuildContext context, int index) {
               return CategoryItem(model.workoutCategories.elementAt(index),
-                  model.navigateToInstructions);
+                  model.navigateToInstructions, model.navigateToStartworkout);
             },
           ),
         ),

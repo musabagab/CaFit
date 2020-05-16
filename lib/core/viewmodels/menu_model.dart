@@ -25,4 +25,8 @@ class MenuModel extends BaseModel {
   void navigateToInstructions(String categoryName) {
     _navigationService.navigateTo(Router.INSTRUCTIONS, arguments: categoryName);
   }
+
+  void navigateToStartworkout(String categoryName) {
+    _navigationService.navigateTo(Router.STARTWORKOUT, arguments: categoryName);
+  }
 }
