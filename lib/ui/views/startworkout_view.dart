@@ -23,7 +23,7 @@ class StartWorkoutView extends StatelessWidget {
         body: SafeArea(
           child: Stack(
             children: <Widget>[
-              Padding(
+              Container(
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
                   elevation: 8,
