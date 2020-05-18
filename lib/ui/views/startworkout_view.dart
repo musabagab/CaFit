@@ -3,6 +3,7 @@ import 'package:provider_architecture/core/models/exercise.dart';
 import 'package:provider_architecture/core/viewmodels/startworkout_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/text_styles.dart';
+import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 
@@ -31,6 +32,8 @@ class StartWorkoutView extends StatelessWidget {
                     padding: EdgeInsets.all(16.0),
                     itemCount: model.getExercisesList(categoryName).length,
                     itemBuilder: (BuildContext context, int index) {
+                      if (index == 0) return buildListHeader();
+
                       return buildExercisesList(model
                           .getExercisesList(categoryName)
                           .elementAt(index));
@@ -86,4 +89,18 @@ class StartWorkoutView extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget buildListHeader() {
+  return Center(
+    child: Column(
+      children: <Widget>[
+        Text(
+          'Exercises',
+          style: exerciseTitleStyle,
+        ),
+        UIHelper.verticalSpaceLarge()
+      ],
+    ),
+  );
 }

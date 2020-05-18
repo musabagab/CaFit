@@ -44,7 +44,7 @@ const categoryTitleStyle = TextStyle(
 );
 
 const exerciseTitleStyle = TextStyle(
-  fontSize: 22.0,
+  fontSize: 30.0,
   fontWeight: FontWeight.w500,
   color: Colors.black,
 );
