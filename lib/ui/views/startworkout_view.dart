@@ -7,9 +7,16 @@ import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 
-class StartWorkoutView extends StatelessWidget {
+class StartWorkoutView extends StatefulWidget {
   final String categoryName;
   StartWorkoutView(this.categoryName);
+
+  @override
+  _StartWorkoutViewState createState() => _StartWorkoutViewState();
+}
+
+class _StartWorkoutViewState extends State<StartWorkoutView> {
+  bool isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +26,7 @@ class StartWorkoutView extends StatelessWidget {
           leading: BackButton(
             color: Colors.white,
           ),
-          title: AppBarTitle(categoryName),
+          title: AppBarTitle(widget.categoryName),
         ),
         body: SafeArea(
           child: Stack(
@@ -30,12 +37,13 @@ class StartWorkoutView extends StatelessWidget {
                   elevation: 8,
                   child: ListView.builder(
                     padding: EdgeInsets.all(16.0),
-                    itemCount: model.getExercisesList(categoryName).length,
+                    itemCount:
+                        model.getExercisesList(widget.categoryName).length,
                     itemBuilder: (BuildContext context, int index) {
                       if (index == 0) return buildListHeader();
 
                       return buildExercisesList(model
-                          .getExercisesList(categoryName)
+                          .getExercisesList(widget.categoryName)
                           .elementAt(index));
                     },
                   ),
@@ -75,11 +83,11 @@ class StartWorkoutView extends StatelessWidget {
           children: <Widget>[
             Text(
               exercise.name,
-              style: exerciseTitleStyle,
+              style: exerciseItemTitleStyle,
             ),
             Text(
               exercise.duration,
-              style: exerciseTitleStyle,
+              style: exerciseItemTitleStyle,
             ),
           ],
         ),
@@ -99,7 +107,17 @@ Widget buildListHeader() {
           'Exercises',
           style: exerciseTitleStyle,
         ),
-        UIHelper.verticalSpaceLarge()
+        UIHelper.verticalSpaceMedium(),
+        Row(
+          children: <Widget>[
+            Switch(
+              value: true,
+              onChanged: (value) {},
+              activeTrackColor: Colors.lightGreenAccent,
+              activeColor: Colors.green,
+            )
+          ],
+        )
       ],
     ),
   );
