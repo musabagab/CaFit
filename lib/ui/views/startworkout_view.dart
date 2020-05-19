@@ -16,8 +16,6 @@ class StartWorkoutView extends StatefulWidget {
 }
 
 class _StartWorkoutViewState extends State<StartWorkoutView> {
-  bool isSwtched = false;
-
   @override
   Widget build(BuildContext context) {
     return BaseView<StartWorkoutModel>(
@@ -119,14 +117,10 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
                     style: randdomAndTimeStyle,
                   ),
                   Switch(
-                    value: isSwtched,
+                    value: model.isSwtched,
                     onChanged: (value) {
-                      isSwtched = value;
-                      if (value) {
-                        model.randomExercies(widget.categoryName);
-                      } else {
-                        model.getExercisesList(widget.categoryName);
-                      }
+                      model.isSwtched = value;
+                      model.statusChanged(widget.categoryName);
                     },
                     activeTrackColor: Colors.lightGreenAccent,
                     activeColor: Colors.green,
