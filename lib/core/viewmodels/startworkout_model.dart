@@ -7,8 +7,14 @@ import 'package:provider_architecture/locator.dart';
 class StartWorkoutModel extends BaseModel {
   final NavigationService _navigationService = locator<NavigationService>();
   final ExericesService _exerciseService = locator<ExericesService>();
+  List<Exercise> exerciesList = List();
 
-  List<Exercise> getExercisesList(String selectedCategory) {
-    return _exerciseService.getExercisesList(selectedCategory);
+  getExercisesList(String selectedCategory) {
+    exerciesList = _exerciseService.getExercisesList(selectedCategory);
+  }
+
+  randomExercies(String selectedCategory) {
+    exerciesList.shuffle();
+    notifyListeners();
   }
 }

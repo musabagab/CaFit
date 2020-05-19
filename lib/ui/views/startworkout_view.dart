@@ -16,11 +16,12 @@ class StartWorkoutView extends StatefulWidget {
 }
 
 class _StartWorkoutViewState extends State<StartWorkoutView> {
-  bool isSwitched = false;
+  bool isSwtched = false;
 
   @override
   Widget build(BuildContext context) {
     return BaseView<StartWorkoutModel>(
+      onModelReady: (model) => model.getExercisesList(widget.categoryName),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           leading: BackButton(
@@ -37,14 +38,12 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
                   elevation: 8,
                   child: ListView.builder(
                     padding: EdgeInsets.all(16.0),
-                    itemCount:
-                        model.getExercisesList(widget.categoryName).length,
+                    itemCount: model.exerciesList.length,
                     itemBuilder: (BuildContext context, int index) {
-                      if (index == 0) return buildListHeader();
+                      if (index == 0) return buildListHeader(model);
 
-                      return buildExercisesList(model
-                          .getExercisesList(widget.categoryName)
-                          .elementAt(index));
+                      return buildExercisesList(
+                          model.exerciesList.elementAt(index));
                     },
                   ),
                 ),
@@ -100,28 +99,49 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
       ],
     );
   }
-}
 
-Widget buildListHeader() {
-  return Center(
-    child: Column(
-      children: <Widget>[
-        Text(
-          'Exercises',
-          style: exerciseTitleStyle,
-        ),
-        UIHelper.verticalSpaceMedium(),
-        Row(
-          children: <Widget>[
-            Switch(
-              value: true,
-              onChanged: (value) {},
-              activeTrackColor: Colors.lightGreenAccent,
-              activeColor: Colors.green,
-            )
-          ],
-        )
-      ],
-    ),
-  );
+  Widget buildListHeader(StartWorkoutModel model) {
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Text(
+            'Exercises',
+            style: exerciseTitleStyle,
+          ),
+          UIHelper.verticalSpaceMedium(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: <Widget>[
+                  Text(
+                    'Random',
+                    style: randdomAndTimeStyle,
+                  ),
+                  Switch(
+                    value: isSwtched,
+                    onChanged: (value) {
+                      setState(() {
+                        isSwtched = value;
+                        if (value) {
+                          model.randomExercies(widget.categoryName);
+                        } else {
+                          model.getExercisesList(widget.categoryName);
+                        }
+                      });
+                    },
+                    activeTrackColor: Colors.lightGreenAccent,
+                    activeColor: Colors.green,
+                  )
+                ],
+              ),
+              Text('Time', style: randdomAndTimeStyle)
+            ],
+          ),
+          Divider(thickness: .5),
+          buildExercisesList(model.exerciesList.elementAt(0)),
+        ],
+      ),
+    );
+  }
 }

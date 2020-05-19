@@ -54,3 +54,6 @@ const exerciseItemTitleStyle = TextStyle(
   fontWeight: FontWeight.w400,
   color: Colors.black,
 );
+
+const randdomAndTimeStyle =
+    TextStyle(fontSize: 20, fontWeight: FontWeight.w700);
