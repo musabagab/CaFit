@@ -121,14 +121,12 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
                   Switch(
                     value: isSwtched,
                     onChanged: (value) {
-                      setState(() {
-                        isSwtched = value;
-                        if (value) {
-                          model.randomExercies(widget.categoryName);
-                        } else {
-                          model.getExercisesList(widget.categoryName);
-                        }
-                      });
+                      isSwtched = value;
+                      if (value) {
+                        model.randomExercies(widget.categoryName);
+                      } else {
+                        model.getExercisesList(widget.categoryName);
+                      }
                     },
                     activeTrackColor: Colors.lightGreenAccent,
                     activeColor: Colors.green,

@@ -11,6 +11,7 @@ class StartWorkoutModel extends BaseModel {
 
   getExercisesList(String selectedCategory) {
     exerciesList = _exerciseService.getExercisesList(selectedCategory);
+    notifyListeners();
   }
 
   randomExercies(String selectedCategory) {
