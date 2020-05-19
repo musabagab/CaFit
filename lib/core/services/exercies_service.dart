@@ -6,7 +6,9 @@ class ExericesService {
     return [
       Exercise("PUSH-UPS", "30 s", "assetPath", "description"),
       Exercise("PLANK", "30 s", "assetPath", "description"),
-      Exercise("SITUPS", "30 s", "assetPath", "description")
+      Exercise("SITUPS", "30 s", "assetPath", "description"),
+      Exercise("JUMPING JACKS", "30 s", "assetPath", "description"),
+      Exercise("BURPEES", "30 s", "assetPath", "description"),
     ];
   }
 }
