@@ -64,9 +64,12 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
       right: 0,
       child: RaisedButton(
         elevation: 8,
-        child: Text(
-          "GO >",
-          style: TextStyle(color: Colors.white),
+        child: Container(
+          margin: EdgeInsets.all(16),
+          child: Text(
+            "GO >",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
         color: primaryColor,
         onPressed: () {},
