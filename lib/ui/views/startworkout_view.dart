@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/viewmodels/startworkout_model.dart';
-import 'package:provider_architecture/ui/shared/text_styles.dart';
-import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 import 'package:provider_architecture/ui/widgets/startworkout_widgets/exercise_item.dart';
 import 'package:provider_architecture/ui/widgets/startworkout_widgets/go_button.dart';
+import 'package:provider_architecture/ui/widgets/startworkout_widgets/list_header.dart';
 
 class StartWorkoutView extends StatefulWidget {
   final String categoryName;
@@ -50,49 +49,10 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
       padding: EdgeInsets.all(16.0),
       itemCount: model.exerciesList.length,
       itemBuilder: (BuildContext context, int index) {
-        if (index == 0) return buildListHeader(model);
+        if (index == 0) return ListHeader(model, widget.categoryName);
 
         return ExerciseItem(model.exerciesList.elementAt(index));
       },
-    );
-  }
-
-  Widget buildListHeader(StartWorkoutModel model) {
-    return Center(
-      child: Column(
-        children: <Widget>[
-          Text(
-            'Exercises',
-            style: exerciseTitleStyle,
-          ),
-          UIHelper.verticalSpaceMedium(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: <Widget>[
-                  Text(
-                    'Random',
-                    style: randdomAndTimeStyle,
-                  ),
-                  Switch(
-                    value: model.isSwtched,
-                    onChanged: (value) {
-                      model.isSwtched = value;
-                      model.statusChanged(widget.categoryName);
-                    },
-                    activeTrackColor: Colors.lightGreenAccent,
-                    activeColor: Colors.green,
-                  )
-                ],
-              ),
-              Text('Time', style: randdomAndTimeStyle)
-            ],
-          ),
-          Divider(thickness: .5),
-          ExerciseItem(model.exerciesList.elementAt(0))
-        ],
-      ),
     );
   }
 }

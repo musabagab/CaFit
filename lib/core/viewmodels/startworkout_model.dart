@@ -18,7 +18,8 @@ class StartWorkoutModel extends BaseModel {
     exerciesList.shuffle();
   }
 
-  void statusChanged(String categoryName) {
+  void statusChanged(String categoryName, bool value) {
+    isSwtched = value;
     if (isSwtched) {
       randomExercies();
     } else {
