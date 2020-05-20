@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/models/exercise.dart';
+import 'package:provider_architecture/core/services/exercies_service.dart';
 import 'package:provider_architecture/core/viewmodels/startworkout_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/text_styles.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
+import 'package:provider_architecture/ui/widgets/startworkout_widgets/exercise_item.dart';
 
 class StartWorkoutView extends StatefulWidget {
   final String categoryName;
@@ -40,8 +42,7 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
                     itemBuilder: (BuildContext context, int index) {
                       if (index == 0) return buildListHeader(model);
 
-                      return buildExercisesList(
-                          model.exerciesList.elementAt(index));
+                      return ExerciseItem(model.exerciesList.elementAt(index));
                     },
                   ),
                 ),
@@ -71,30 +72,6 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
         color: primaryColor,
         onPressed: () {},
       ),
-    );
-  }
-
-  Widget buildExercisesList(Exercise exercise) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              exercise.name,
-              style: exerciseItemTitleStyle,
-            ),
-            Text(
-              exercise.duration,
-              style: exerciseItemTitleStyle,
-            ),
-          ],
-        ),
-        Divider(
-          thickness: .5,
-        )
-      ],
     );
   }
 
@@ -131,7 +108,7 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
             ],
           ),
           Divider(thickness: .5),
-          buildExercisesList(model.exerciesList.elementAt(0)),
+          ExerciseItem(model.exerciesList.elementAt(0))
         ],
       ),
     );
