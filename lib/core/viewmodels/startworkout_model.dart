@@ -14,13 +14,13 @@ class StartWorkoutModel extends BaseModel {
     exerciesList = _exerciseService.getExercisesList(selectedCategory);
   }
 
-  randomExercies(String selectedCategory) {
+  randomExercies() {
     exerciesList.shuffle();
   }
 
   void statusChanged(String categoryName) {
     if (isSwtched) {
-      randomExercies(categoryName);
+      randomExercies();
     } else {
       getExercisesList(categoryName);
     }

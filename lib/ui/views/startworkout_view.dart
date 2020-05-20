@@ -36,15 +36,7 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
                   elevation: 8,
-                  child: ListView.builder(
-                    padding: EdgeInsets.all(16.0),
-                    itemCount: model.exerciesList.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      if (index == 0) return buildListHeader(model);
-
-                      return ExerciseItem(model.exerciesList.elementAt(index));
-                    },
-                  ),
+                  child: buildExercisesList(model),
                 ),
               ),
               buildGoButton()
@@ -52,6 +44,18 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
           ),
         ),
       ),
+    );
+  }
+
+  ListView buildExercisesList(StartWorkoutModel model) {
+    return ListView.builder(
+      padding: EdgeInsets.all(16.0),
+      itemCount: model.exerciesList.length,
+      itemBuilder: (BuildContext context, int index) {
+        if (index == 0) return buildListHeader(model);
+
+        return ExerciseItem(model.exerciesList.elementAt(index));
+      },
     );
   }
 
