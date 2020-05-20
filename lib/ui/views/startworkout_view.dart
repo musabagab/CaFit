@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider_architecture/core/models/exercise.dart';
-import 'package:provider_architecture/core/services/exercies_service.dart';
 import 'package:provider_architecture/core/viewmodels/startworkout_model.dart';
-import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/text_styles.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 import 'package:provider_architecture/ui/widgets/startworkout_widgets/exercise_item.dart';
+import 'package:provider_architecture/ui/widgets/startworkout_widgets/go_button.dart';
 
 class StartWorkoutView extends StatefulWidget {
   final String categoryName;
@@ -39,7 +37,7 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
                   child: buildExercisesList(model),
                 ),
               ),
-              buildGoButton()
+              GoButton(),
             ],
           ),
         ),
@@ -56,26 +54,6 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
 
         return ExerciseItem(model.exerciesList.elementAt(index));
       },
-    );
-  }
-
-  Positioned buildGoButton() {
-    return Positioned(
-      bottom: 0,
-      left: 0,
-      right: 0,
-      child: RaisedButton(
-        elevation: 8,
-        child: Container(
-          margin: EdgeInsets.all(16),
-          child: Text(
-            "GO >",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        color: primaryColor,
-        onPressed: () {},
-      ),
     );
   }
 
