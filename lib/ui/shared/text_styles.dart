@@ -50,7 +50,7 @@ const exerciseTitleStyle = TextStyle(
 );
 
 const exerciseItemTitleStyle = TextStyle(
-  fontSize: 30.0,
+  fontSize: 22.0,
   fontWeight: FontWeight.w400,
   color: Colors.black,
 );
