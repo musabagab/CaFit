@@ -10,7 +10,29 @@ class ExericesService {
     Exercise("BURPEES", EXERCISE_DURAION, "assetPath", "description"),
   ];
 
+  final List<Exercise> armList = [
+    Exercise("SIDE PLANK", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("PUSH-UP", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("PUNCHES", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("ARM CIRCULES", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("ARM RAISE", EXERCISE_DURAION, "assetPath", "description"),
+  ];
+
+  final List<Exercise> legList = [
+    Exercise("SIDE PLANK", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("PUSH-UP", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("PUNCHES", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("ARM CIRCULES", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("ARM RAISE", EXERCISE_DURAION, "assetPath", "description"),
+  ];
+
   List<Exercise> getExercisesList(String selectedExerciseCategory) {
-    return fullBodyList;
+    if (selectedExerciseCategory == ARM_WORKOUT) {
+      return armList;
+    } else if (selectedExerciseCategory == LEG_WORKOUT) {
+      return legList;
+    } else {
+      return fullBodyList;
+    }
   }
 }
