@@ -19,11 +19,11 @@ class ExericesService {
   ];
 
   final List<Exercise> legList = [
-    Exercise("SIDE PLANK", EXERCISE_DURAION, "assetPath", "description"),
-    Exercise("PUSH-UP", EXERCISE_DURAION, "assetPath", "description"),
-    Exercise("PUNCHES", EXERCISE_DURAION, "assetPath", "description"),
-    Exercise("ARM CIRCULES", EXERCISE_DURAION, "assetPath", "description"),
-    Exercise("ARM RAISE", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("HIGH KNEES", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("BURPREES", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("SQUAT", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("CLAF RAISE", EXERCISE_DURAION, "assetPath", "description"),
+    Exercise("SPLIT SQUAT", EXERCISE_DURAION, "assetPath", "description"),
   ];
 
   List<Exercise> getExercisesList(String selectedExerciseCategory) {
