@@ -28,11 +28,14 @@ class ExericesService {
 
   List<Exercise> getExercisesList(String selectedExerciseCategory) {
     if (selectedExerciseCategory == ARM_WORKOUT) {
-      return armList;
+      print(armList.elementAt(0).name);
+      return List.of(armList);
     } else if (selectedExerciseCategory == LEG_WORKOUT) {
-      return legList;
+      print(legList.elementAt(0).name);
+      return List.of(legList);
     } else {
-      return fullBodyList;
+      print(fullBodyList.elementAt(0).name);
+      return List.of(fullBodyList);
     }
   }
 }

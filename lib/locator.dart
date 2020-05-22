@@ -13,9 +13,9 @@ GetIt locator = GetIt();
 Future setupLocator() async {
   var instance = await LocalStorageService.getInstance();
   // register services
-  locator.registerLazySingleton(() => NavigationService());  
+  locator.registerLazySingleton(() => NavigationService());
   locator.registerSingleton<LocalStorageService>(instance);
-  locator.registerLazySingleton(() => ExericesService());
+  locator.registerFactory(() => ExericesService());
   // register the viewmodel
   locator.registerFactory(() => OnboardingModel());
   locator.registerFactory(() => MenuModel());

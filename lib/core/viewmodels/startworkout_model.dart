@@ -11,7 +11,7 @@ class StartWorkoutModel extends BaseModel {
   bool isSwtched = false;
 
   getExercisesList(String selectedCategory) {
-    exerciesList = _exerciseService.getExercisesList(selectedCategory);
+    exerciesList = _exerciseService.getExercisesList(selectedCategory).toList();
   }
 
   randomExercies() {
@@ -26,5 +26,7 @@ class StartWorkoutModel extends BaseModel {
       getExercisesList(categoryName);
     }
     notifyListeners();
+
+    print(value);
   }
 }
