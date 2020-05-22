@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 
 class GoButton extends StatelessWidget {
+  final String selectedCategory;
+  final Function navigateToWorkout;
+  GoButton(this.navigateToWorkout, this.selectedCategory);
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -18,7 +21,9 @@ class GoButton extends StatelessWidget {
           ),
         ),
         color: primaryColor,
-        onPressed: () {},
+        onPressed: () {
+          navigateToWorkout(selectedCategory);
+        },
       ),
     );
   }

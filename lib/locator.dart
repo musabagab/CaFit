@@ -5,6 +5,7 @@ import 'package:provider_architecture/core/viewmodels/instructions_model.dart';
 import 'package:provider_architecture/core/viewmodels/menu_model.dart';
 import 'package:provider_architecture/core/viewmodels/onboarding_model.dart';
 import 'package:provider_architecture/core/viewmodels/startworkout_model.dart';
+import 'package:provider_architecture/core/viewmodels/workout_model.dart';
 
 import 'core/services/navigation_service.dart';
 
@@ -21,4 +22,5 @@ Future setupLocator() async {
   locator.registerFactory(() => MenuModel());
   locator.registerFactory(() => InstructionsModel());
   locator.registerFactory(() => StartWorkoutModel());
+  locator.registerFactory(() => WorkoutModel());
 }

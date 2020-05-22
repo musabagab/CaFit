@@ -3,6 +3,7 @@ import 'package:provider_architecture/ui/views/instructions_view.dart';
 import 'package:provider_architecture/ui/views/menu_view.dart';
 import 'package:provider_architecture/ui/views/onboarding_view.dart';
 import 'package:provider_architecture/ui/views/startworkout_view.dart';
+import 'package:provider_architecture/ui/views/workout_view.dart';
 
 class Router {
   static const ONBOARDING = "onboarding";
@@ -10,6 +11,7 @@ class Router {
   static const START = "start";
   static const INSTRUCTIONS = "instructions";
   static const STARTWORKOUT = "startworkout";
+  static const WORKOUT = "workoutt";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -25,6 +27,9 @@ class Router {
         var categoryName = settings.arguments as String;
         return MaterialPageRoute(
             builder: (_) => StartWorkoutView(categoryName));
+      case WORKOUT:
+        var categoryName = settings.arguments as String;
+        return MaterialPageRoute(builder: (_) => WorkoutView(categoryName));
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(

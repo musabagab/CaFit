@@ -36,7 +36,7 @@ class _StartWorkoutViewState extends State<StartWorkoutView> {
                   child: buildExercisesList(model),
                 ),
               ),
-              GoButton(),
+              GoButton(model.navigateToWorkout, widget.categoryName),
             ],
           ),
         ),
