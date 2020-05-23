@@ -28,8 +28,10 @@ class Router {
         return MaterialPageRoute(
             builder: (_) => StartWorkoutView(categoryName));
       case WORKOUT:
-        var categoryName = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => WorkoutView(categoryName));
+        var arguments = settings.arguments as List<dynamic>;
+
+        return MaterialPageRoute(
+            builder: (_) => WorkoutView(arguments[0], arguments[1]));
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(
@@ -41,3 +43,5 @@ class Router {
     }
   }
 }
+
+class ScreenArguments {}

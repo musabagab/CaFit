@@ -32,7 +32,7 @@ class StartWorkoutModel extends BaseModel {
   }
 
   navigateToWorkout(String selectedCategory) {
-    _navigationService.navigateAndReplace(Router.WORKOUT,
-        arguments: selectedCategory);
+    List<dynamic> args = [selectedCategory, exerciesList];
+    _navigationService.navigateAndReplace(Router.WORKOUT, arguments: args);
   }
 }
