@@ -77,16 +77,22 @@ class _InstructionsViewState extends State<InstructionsView>
             <li>It exists</li>
             <li>It doesn't cost much!</li>
           </ul>
+          <h3>Image support:</h3>
+      <p>        
+        <a href='https://google.com'><img alt='Google' src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png' /></a>        
+      </p>
           <!--You can pretty much put any html in here!-->
         </div>
       """,
     //Optional parameters:
     backgroundColor: Colors.white70,
+
     onLinkTap: (url) {
       // open url in a webview
     },
+    padding: EdgeInsets.all(10),
     onImageTap: (src) {
-      // Display the image in large form.
+      print(src);
     },
   );
 }
