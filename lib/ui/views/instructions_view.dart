@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:provider_architecture/core/viewmodels/instructions_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart' as prefix0;
 import 'package:provider_architecture/ui/views/base_view.dart';
@@ -27,7 +28,7 @@ class _InstructionsViewState extends State<InstructionsView>
           child: Scaffold(
             body: TabBarView(
               controller: model.getController(),
-              children: [Text('Full Body'), Text('Legs'), Text('Arms')],
+              children: [html, Text('Legs'), Text('Arms')],
             ),
             appBar: AppBar(
               leading: IconButton(
@@ -64,4 +65,28 @@ class _InstructionsViewState extends State<InstructionsView>
       ),
     ];
   }
+
+  Widget html = Html(
+    data: """
+        <div>
+          <h1>Demo Page</h1>
+          <p>This is a fantastic product that you should buy!</p>
+          <h3>Features</h3>
+          <ul>
+            <li>It actually works</li>
+            <li>It exists</li>
+            <li>It doesn't cost much!</li>
+          </ul>
+          <!--You can pretty much put any html in here!-->
+        </div>
+      """,
+    //Optional parameters:
+    backgroundColor: Colors.white70,
+    onLinkTap: (url) {
+      // open url in a webview
+    },
+    onImageTap: (src) {
+      // Display the image in large form.
+    },
+  );
 }
