@@ -28,7 +28,7 @@ class _InstructionsViewState extends State<InstructionsView>
           child: Scaffold(
             body: TabBarView(
               controller: model.getController(),
-              children: [html, Text('Legs'), Text('Arms')],
+              children: buildTabViews(),
             ),
             appBar: AppBar(
               leading: IconButton(
@@ -51,6 +51,8 @@ class _InstructionsViewState extends State<InstructionsView>
       ),
     );
   }
+
+  List<Widget> buildTabViews() => [html, Text('Legs'), Text('Arms')];
 
   List<Widget> buildTaps() {
     return [
