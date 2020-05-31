@@ -19,9 +19,7 @@ class WorkoutView extends StatelessWidget {
           ),
           title: AppBarTitle(categoryName),
         ),
-        body: SafeArea(
-          child: Text('Hello there '),
-        ),
+        body: SafeArea(child: Text('Hi')),
       ),
     );
   }
