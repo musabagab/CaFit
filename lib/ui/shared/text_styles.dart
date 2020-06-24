@@ -57,3 +57,15 @@ const exerciseItemTitleStyle = TextStyle(
 
 const randdomAndTimeStyle =
     TextStyle(fontSize: 20, fontWeight: FontWeight.w700);
+
+const timerworkoutViewTextStyle = TextStyle(
+  fontSize: 100,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+const workoutNameWorkoutViewTextStyle = TextStyle(
+  fontSize: 70,
+  fontWeight: FontWeight.bold,
+  color: primaryColor,
+);
