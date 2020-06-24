@@ -9,7 +9,7 @@ class StartWorkoutModel extends BaseModel {
   final NavigationService _navigationService = locator<NavigationService>();
   final ExericesService _exerciseService = locator<ExericesService>();
   List<Exercise> exerciesList = List();
-  bool isSwtched = false;
+  bool isRandom = false;
 
   getExercisesList(String selectedCategory) {
     exerciesList = _exerciseService.getExercisesList(selectedCategory).toList();
@@ -19,16 +19,15 @@ class StartWorkoutModel extends BaseModel {
     exerciesList.shuffle();
   }
 
-  void statusChanged(String categoryName, bool value) {
-    isSwtched = value;
-    if (isSwtched) {
+  void statusChanged(String categoryName, bool swtichValue) {
+    isRandom = swtichValue;
+
+    if (isRandom) {
       randomExercies();
     } else {
       getExercisesList(categoryName);
     }
     notifyListeners();
-
-    print(value);
   }
 
   navigateToWorkout(String selectedCategory) {

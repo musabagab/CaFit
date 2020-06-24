@@ -9,7 +9,7 @@ import 'package:provider_architecture/core/viewmodels/workout_model.dart';
 
 import 'core/services/navigation_service.dart';
 
-GetIt locator = GetIt();
+GetIt locator = GetIt.asNewInstance();
 
 Future setupLocator() async {
   var instance = await LocalStorageService.getInstance();

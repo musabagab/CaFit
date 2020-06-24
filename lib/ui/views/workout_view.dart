@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/models/exercise.dart';
 import 'package:provider_architecture/core/viewmodels/startworkout_model.dart';
+import 'package:provider_architecture/core/viewmodels/workout_model.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 import 'package:quiver/async.dart';
@@ -39,7 +40,7 @@ class _WorkoutViewState extends State<WorkoutView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<StartWorkoutModel>(
+    return BaseView<WorkoutModel>(
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           leading: BackButton(

@@ -28,7 +28,7 @@ class ListHeader extends StatelessWidget {
                     style: randdomAndTimeStyle,
                   ),
                   Switch(
-                    value: model.isSwtched,
+                    value: model.isRandom,
                     onChanged: (value) {
                       model.statusChanged(selectedCategory, value);
                     },

@@ -8,11 +8,13 @@ import 'core/services/localstorage_service.dart';
 import 'core/services/navigation_service.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   try {
     await setupLocator();
     runApp(MyApp());
   } catch (error) {
-    print('Locator setup has failed!');
+    print('Locator setup has failed! ' + error.toString());
   }
 }
 
