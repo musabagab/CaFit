@@ -7,6 +7,7 @@ import 'package:provider_architecture/core/viewmodels/workout_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/text_styles.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
+import 'package:provider_architecture/ui/views/exercise_completed_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 
 class WorkoutView extends StatefulWidget {
@@ -21,6 +22,8 @@ class WorkoutView extends StatefulWidget {
 class _WorkoutViewState extends State<WorkoutView> {
   int currentValue = 0;
   Timer t;
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return BaseView<WorkoutModel>(
@@ -38,13 +41,15 @@ class _WorkoutViewState extends State<WorkoutView> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             Text(
-              'Workout Name',
+              widget.exercisesList.elementAt(selectedIndex).name,
               style: workoutNameWorkoutViewTextStyle,
               textAlign: TextAlign.center,
             ),
-            RaisedButton(onPressed: () {
-              startTimer();
-            }),
+            RaisedButton(
+              onPressed: () {
+                startTimer();
+              },
+            ),
             Stack(
               children: <Widget>[
                 FAProgressBar(
@@ -58,7 +63,7 @@ class _WorkoutViewState extends State<WorkoutView> {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    currentValue.toString() + 's',
+                    (30 - currentValue).toString() + 's',
                     style: timerworkoutViewTextStyle,
                   ),
                 ),
@@ -76,13 +81,26 @@ class _WorkoutViewState extends State<WorkoutView> {
       t.cancel();
     }
     t = new Timer.periodic(new Duration(seconds: 1), (time) {
-      print('One second passed!');
       setState(() {
         currentValue++;
       });
 
       if (currentValue == 30) {
-        t.cancel();
+        currentValue = 0;
+        selectedIndex++;
+        if (selectedIndex >= widget.exercisesList.length) {
+          print("Exercies Ended!");
+          selectedIndex = 0;
+          t.cancel();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ExerciseCompleted()),
+          );
+        } else {
+          // NEXT EXERCISE
+          //TODO: create delay here (rest)
+          startTimer();
+        }
       }
     });
   }
