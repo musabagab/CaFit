@@ -33,8 +33,8 @@ class ListHeader extends StatelessWidget {
                     onChanged: (value) {
                       model.statusChanged(selectedCategory, value);
                     },
-                    activeTrackColor: primaryColor,
-                    activeColor: accentColor,
+                    activeTrackColor: primaryLight,
+                    activeColor: primaryColorDark,
                   )
                 ],
               ),

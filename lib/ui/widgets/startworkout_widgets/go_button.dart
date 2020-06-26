@@ -17,7 +17,7 @@ class GoButton extends StatelessWidget {
           margin: EdgeInsets.all(16),
           child: Text(
             "GO >",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: 25),
           ),
         ),
         color: primaryColor,
