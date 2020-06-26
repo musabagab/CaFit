@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/core/viewmodels/startworkout_model.dart';
+import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/text_styles.dart';
 import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/widgets/startworkout_widgets/exercise_item.dart';
@@ -32,8 +33,8 @@ class ListHeader extends StatelessWidget {
                     onChanged: (value) {
                       model.statusChanged(selectedCategory, value);
                     },
-                    activeTrackColor: Colors.lightGreenAccent,
-                    activeColor: Colors.green,
+                    activeTrackColor: primaryColor,
+                    activeColor: accentColor,
                   )
                 ],
               ),
