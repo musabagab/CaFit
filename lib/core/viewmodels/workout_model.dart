@@ -18,10 +18,7 @@ class WorkoutModel extends BaseModel {
 
   void startTimer() {
     isStarted = true;
-    currentValue = 0;
-    if (timer != null) {
-      timer.cancel();
-    }
+
     timer = new Timer.periodic(new Duration(seconds: 1), (time) {
       currentValue++;
       notifyListeners();
@@ -37,10 +34,20 @@ class WorkoutModel extends BaseModel {
         } else {
           // NEXT EXERCISE
           //TODO: create delay here (rest)
-          startTimer();
+          resetTimer();
         }
       }
     });
+  }
+
+  resetTimer() {
+    currentValue = 0;
+    notifyListeners();
+
+    if (timer != null) {
+      timer.cancel();
+    }
+    startTimer();
   }
 
   initExerciseList(receviedExercises) {

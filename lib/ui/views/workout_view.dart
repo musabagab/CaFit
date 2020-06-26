@@ -4,6 +4,7 @@ import 'package:provider_architecture/core/models/exercise.dart';
 import 'package:provider_architecture/core/viewmodels/workout_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/shared/text_styles.dart';
+import 'package:provider_architecture/ui/shared/ui_helpers.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 
@@ -31,24 +32,32 @@ class _WorkoutViewState extends State<WorkoutView> {
         ),
         body: SafeArea(
             child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            UIHelper.verticalSpaceSmall(),
             Text(
               widget.exercisesList.elementAt(model.selectedIndex).name,
               style: workoutNameWorkoutViewTextStyle,
               textAlign: TextAlign.center,
             ),
-            RaisedButton(
-              padding:
-                  EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
-              onPressed: model.startTimer,
-              color: primaryColor,
-              child: Text(
-                'Start',
-                style: TextStyle(color: Colors.white, fontSize: 30),
-              ),
+            Image.asset(
+              model.exercisesList.elementAt(model.selectedIndex).assetPath,
+              width: 250,
+              height: 250,
             ),
+            !model.isStarted
+                ? RaisedButton(
+                    padding: EdgeInsets.only(
+                        left: 16, right: 16, top: 10, bottom: 10),
+                    onPressed: model.startTimer,
+                    color: primaryColor,
+                    child: Text(
+                      'Start',
+                      style: TextStyle(color: Colors.white, fontSize: 30),
+                    ),
+                  )
+                : Container(),
             Stack(
               children: <Widget>[
                 FAProgressBar(
