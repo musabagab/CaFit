@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider_architecture/ui/views/exercise_completed_view.dart';
 import 'package:provider_architecture/ui/views/instructions_view.dart';
 import 'package:provider_architecture/ui/views/menu_view.dart';
 import 'package:provider_architecture/ui/views/onboarding_view.dart';
@@ -11,7 +12,8 @@ class Router {
   static const START = "start";
   static const INSTRUCTIONS = "instructions";
   static const STARTWORKOUT = "startworkout";
-  static const WORKOUT = "workoutt";
+  static const WORKOUT = "workout";
+  static const EXERCISE_COMPLETED = "exercise_completed";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -32,6 +34,8 @@ class Router {
 
         return MaterialPageRoute(
             builder: (_) => WorkoutView(arguments[0], arguments[1]));
+      case EXERCISE_COMPLETED:
+        return MaterialPageRoute(builder: (_) => ExerciseCompleted());
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(

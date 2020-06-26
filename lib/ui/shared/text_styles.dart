@@ -65,7 +65,7 @@ const timerworkoutViewTextStyle = TextStyle(
 );
 
 const workoutNameWorkoutViewTextStyle = TextStyle(
-  fontSize: 70,
+  fontSize: 50,
   fontWeight: FontWeight.bold,
   color: primaryColor,
 );
