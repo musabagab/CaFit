@@ -3,6 +3,7 @@ import 'package:provider_architecture/ui/views/exercise_completed_view.dart';
 import 'package:provider_architecture/ui/views/instructions_view.dart';
 import 'package:provider_architecture/ui/views/menu_view.dart';
 import 'package:provider_architecture/ui/views/onboarding_view.dart';
+import 'package:provider_architecture/ui/views/rest_view.dart';
 import 'package:provider_architecture/ui/views/startworkout_view.dart';
 import 'package:provider_architecture/ui/views/workout_view.dart';
 
@@ -13,6 +14,7 @@ class Router {
   static const INSTRUCTIONS = "instructions";
   static const STARTWORKOUT = "startworkout";
   static const WORKOUT = "workout";
+  static const REST = "rest";
   static const EXERCISE_COMPLETED = "exercise_completed";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -36,6 +38,8 @@ class Router {
             builder: (_) => WorkoutView(arguments[0], arguments[1]));
       case EXERCISE_COMPLETED:
         return MaterialPageRoute(builder: (_) => ExerciseCompleted());
+      case REST:
+        return MaterialPageRoute(builder: (_) => RestView());
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(

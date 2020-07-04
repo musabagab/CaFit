@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:provider_architecture/core/models/exercise.dart';
 import 'package:provider_architecture/core/services/navigation_service.dart';
@@ -16,7 +15,6 @@ class WorkoutModel extends BaseModel {
   Timer timer;
   int selectedIndex = 0;
   bool isStarted = false;
-  bool takeRest = false;
 
   void startTimer() {
     isStarted = true;
@@ -35,8 +33,7 @@ class WorkoutModel extends BaseModel {
           navigateToExerciseCompleted();
         } else {
           // NEXT EXERCISE
-          takeRest = true;
-          notifyListeners();
+          _navigateToRestView();
         }
       }
     });
@@ -60,9 +57,8 @@ class WorkoutModel extends BaseModel {
     _navigationService.navigateAndReplace(Router.EXERCISE_COMPLETED);
   }
 
-  void endRest() {
-    takeRest = false;
-    notifyListeners();
+  void _navigateToRestView() async {
+    await _navigationService.navigateTo(Router.REST);
     resetTimer();
   }
 }
