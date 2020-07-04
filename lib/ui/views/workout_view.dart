@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:provider_architecture/core/models/exercise.dart';
@@ -31,54 +32,70 @@ class _WorkoutViewState extends State<WorkoutView> {
           title: AppBarTitle(widget.categoryName),
         ),
         body: SafeArea(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            UIHelper.verticalSpaceSmall(),
-            Text(
-              widget.exercisesList.elementAt(model.selectedIndex).name,
-              style: workoutNameWorkoutViewTextStyle,
-              textAlign: TextAlign.center,
-            ),
-            Image.asset(
-              model.exercisesList.elementAt(model.selectedIndex).assetPath,
-              width: 250,
-              height: 250,
-            ),
-            !model.isStarted
-                ? RaisedButton(
-                    padding: EdgeInsets.only(
-                        left: 16, right: 16, top: 10, bottom: 10),
-                    onPressed: model.startTimer,
-                    color: primaryColor,
-                    child: Text(
-                      'Start',
-                      style: TextStyle(color: Colors.white, fontSize: 30),
-                    ),
-                  )
-                : Container(),
-            Stack(
-              children: <Widget>[
-                FAProgressBar(
-                  currentValue: model.currentValue,
-                  maxValue: 30,
-                  borderRadius: 1,
-                  size: 130,
-                  progressColor: primaryColor,
-                  backgroundColor: primaryColor.withOpacity(.4),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    (30 - model.currentValue).toString() + 's',
-                    style: timerworkoutViewTextStyle,
-                  ),
-                ),
-              ],
-            )
-          ],
-        )),
+            child: model.takeRest
+                ? FadeAnimatedTextKit(
+                    totalRepeatCount: 4,
+                    repeatForever: true, //this will ignore [totalRepeatCount]
+                    pause: Duration(milliseconds: 1000),
+                    text: ["1", "2", "3", "4", "5"],
+                    onFinished: model.endRest,
+                    textStyle:
+                        TextStyle(fontSize: 100, fontWeight: FontWeight.bold),
+                    displayFullTextOnTap: true,
+                    stopPauseOnTap: true)
+                : Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      UIHelper.verticalSpaceSmall(),
+                      Text(
+                        widget.exercisesList
+                            .elementAt(model.selectedIndex)
+                            .name,
+                        style: workoutNameWorkoutViewTextStyle,
+                        textAlign: TextAlign.center,
+                      ),
+                      Image.asset(
+                        model.exercisesList
+                            .elementAt(model.selectedIndex)
+                            .assetPath,
+                        width: 250,
+                        height: 250,
+                      ),
+                      !model.isStarted
+                          ? RaisedButton(
+                              padding: EdgeInsets.only(
+                                  left: 16, right: 16, top: 10, bottom: 10),
+                              onPressed: model.startTimer,
+                              color: primaryColor,
+                              child: Text(
+                                'Start',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 30),
+                              ),
+                            )
+                          : Container(),
+                      Stack(
+                        children: <Widget>[
+                          FAProgressBar(
+                            currentValue: model.currentValue,
+                            maxValue: 30,
+                            borderRadius: 1,
+                            size: 130,
+                            progressColor: primaryColor,
+                            backgroundColor: primaryColor.withOpacity(.4),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              (30 - model.currentValue).toString() + 's',
+                              style: timerworkoutViewTextStyle,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  )),
       ),
     );
   }
