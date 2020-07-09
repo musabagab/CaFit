@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:provider_architecture/core/models/exercise.dart';
+import 'package:provider_architecture/core/services/audio_service.dart';
 import 'package:provider_architecture/core/services/navigation_service.dart';
 import 'package:provider_architecture/core/viewmodels/base_model.dart';
 import 'package:provider_architecture/ui/router.dart';
@@ -9,6 +10,7 @@ import '../../locator.dart';
 
 class WorkoutModel extends BaseModel {
   final NavigationService _navigationService = locator<NavigationService>();
+  final AudioService _audioService = locator<AudioService>();
   List<Exercise> exercisesList;
 
   int currentValue = 0;
@@ -18,6 +20,8 @@ class WorkoutModel extends BaseModel {
 
   void startTimer() {
     isStarted = true;
+
+    _audioService.playAudioFromLocalStorage();
 
     timer = new Timer.periodic(new Duration(seconds: 1), (time) {
       currentValue++;

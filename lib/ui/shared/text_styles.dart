@@ -69,3 +69,9 @@ const workoutNameWorkoutViewTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   color: primaryColor,
 );
+
+const takeRestTextStyle = TextStyle(
+  fontSize: 70,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);

@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:provider_architecture/core/services/audio_service.dart';
 import 'package:provider_architecture/core/services/exercies_service.dart';
 import 'package:provider_architecture/core/services/localstorage_service.dart';
 import 'package:provider_architecture/core/viewmodels/instructions_model.dart';
@@ -15,6 +16,7 @@ Future setupLocator() async {
   var instance = await LocalStorageService.getInstance();
   // register services
   locator.registerLazySingleton(() => NavigationService());
+  locator.registerLazySingleton(() => AudioService());
   locator.registerSingleton<LocalStorageService>(instance);
   locator.registerFactory(() => ExericesService());
   // register the viewmodel
