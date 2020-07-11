@@ -21,7 +21,7 @@ class WorkoutModel extends BaseModel {
   void startTimer() {
     isStarted = true;
 
-    _audioService.playAudioFromLocalStorage();
+    _audioService.playStartAudio();
 
     timer = new Timer.periodic(new Duration(seconds: 1), (time) {
       currentValue++;
@@ -32,11 +32,15 @@ class WorkoutModel extends BaseModel {
         selectedIndex++;
         if (selectedIndex >= exercisesList.length) {
           print("Exercies Ended!");
+          _audioService.playdoneAudio();
+
           selectedIndex = 0;
           timer.cancel();
           navigateToExerciseCompleted();
         } else {
           // NEXT EXERCISE
+          _audioService.playTakeARest();
+
           _navigateToRestView();
         }
       }

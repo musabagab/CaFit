@@ -1,13 +1,25 @@
 import 'package:audioplayers/audio_cache.dart';
 
 class AudioService {
-  AudioCache audioCache = new AudioCache();
-  String endAudioPath = "audios/end.mp3";
+  String startAudioPath = "audios/start.mp3";
+  String doneAudioPath = "audios/done.mp3";
+  String takeARestAudio = "audios/take_a_rest.mp3";
 
-  String startAudioPath = "audios/start.wav";
+  playStartAudio() async {
+    AudioCache player = new AudioCache();
 
-  playAudioFromLocalStorage() async {
-    AudioCache player = AudioCache();
     await player.play(startAudioPath);
+  }
+
+  playdoneAudio() async {
+    AudioCache player = new AudioCache();
+
+    await player.play(doneAudioPath);
+  }
+
+  playTakeARest() async {
+    AudioCache player = new AudioCache();
+
+    await player.play(takeARestAudio);
   }
 }
