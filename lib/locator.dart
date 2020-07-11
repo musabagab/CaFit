@@ -19,7 +19,7 @@ Future setupLocator() async {
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => AudioService());
   locator.registerSingleton<LocalStorageService>(instance);
-  locator.registerFactory(() => ExericesService());
+  locator.registerLazySingleton(() => ExericesService());
   // register the viewmodel
   locator.registerFactory(() => OnboardingModel());
   locator.registerFactory(() => MenuModel());

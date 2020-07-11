@@ -35,6 +35,8 @@ class MyApp extends StatelessWidget {
   }
 
   String _getStartupScreen() {
+    return Router.EXERCISE_COMPLETED;
+
     var localStorageService = locator<LocalStorageService>();
 
     if (!localStorageService.hasLoggedIn) {
