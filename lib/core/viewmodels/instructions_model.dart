@@ -28,4 +28,8 @@ class InstructionsModel extends BaseModel {
   getController() {
     return _tabController;
   }
+
+  void goBack() {
+    _navigationService.goBack();
+  }
 }

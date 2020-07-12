@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider_architecture/locator.dart';
 import 'package:provider_architecture/ui/router.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
@@ -21,6 +22,10 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // STATUS BAR color
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: primaryColorDark));
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Carfit',
@@ -35,8 +40,6 @@ class MyApp extends StatelessWidget {
   }
 
   String _getStartupScreen() {
-    return Router.EXERCISE_COMPLETED;
-
     var localStorageService = locator<LocalStorageService>();
 
     if (!localStorageService.hasLoggedIn) {

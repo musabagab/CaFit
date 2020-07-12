@@ -75,3 +75,9 @@ const takeRestTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.white,
 );
+
+const congratsTextStyle = TextStyle(
+  fontSize: 30,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);

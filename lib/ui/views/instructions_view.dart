@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:provider_architecture/core/viewmodels/instructions_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart' as prefix0;
+import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
 
@@ -23,6 +24,11 @@ class _InstructionsViewState extends State<InstructionsView>
           model.prepareController(this, widget.categoryName),
       builder: (context, model, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            primaryColor: primaryColor,
+            primaryColorDark: primaryColorDark,
+            fontFamily: 'Quicksand',
+            accentColor: prefix0.primaryColor),
         home: DefaultTabController(
           length: model.categoryies.length,
           child: Scaffold(
@@ -33,7 +39,7 @@ class _InstructionsViewState extends State<InstructionsView>
             appBar: AppBar(
               leading: IconButton(
                 icon: Icon(Icons.arrow_back, color: Colors.white),
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: model.goBack,
               ),
               title: AppBarTitle('Instructions'),
               backgroundColor: prefix0.primaryColor,

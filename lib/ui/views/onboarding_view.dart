@@ -37,14 +37,12 @@ class OnBoardingView extends StatelessWidget {
 
   FlatButton buildRoundedDoneButton(OnboardingModel model) {
     return FlatButton(
-      onPressed: () {
-        model.start();
-      },
+      onPressed: model.start,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18.0),
         side: BorderSide(color: Colors.red),
       ),
-      color: prefix0.primaryColor,
+      color: primaryColor,
       textColor: Colors.white,
       child: Text("Start"),
     );

@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:provider_architecture/core/services/audio_service.dart';
 import 'package:provider_architecture/core/services/exercies_service.dart';
 import 'package:provider_architecture/core/services/localstorage_service.dart';
+import 'package:provider_architecture/core/viewmodels/exercise_completed_viewmodel.dart';
 import 'package:provider_architecture/core/viewmodels/instructions_model.dart';
 import 'package:provider_architecture/core/viewmodels/menu_model.dart';
 import 'package:provider_architecture/core/viewmodels/onboarding_model.dart';
@@ -27,4 +28,5 @@ Future setupLocator() async {
   locator.registerFactory(() => StartWorkoutModel());
   locator.registerFactory(() => WorkoutModel());
   locator.registerFactory(() => RestViewModel());
+  locator.registerFactory(() => ExerciseCompletedViewModel());
 }
