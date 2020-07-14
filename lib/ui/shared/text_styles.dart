@@ -81,3 +81,15 @@ const congratsTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.black,
 );
+
+const instructionExerciseTitleStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+const instructionExerciseDescStyle = TextStyle(
+  fontSize: 18,
+  fontWeight: FontWeight.w400,
+  color: Colors.black,
+);

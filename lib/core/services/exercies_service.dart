@@ -1,19 +1,21 @@
 import 'package:provider_architecture/core/models/exercise.dart';
 import 'package:provider_architecture/core/shared/constants.dart';
+import 'package:provider_architecture/core/shared/instructions_text.dart';
 
 class ExericesService {
   static String rootPath = "lib/assets/exercises/";
 
   final List<Exercise> fullBodyList = [
-    Exercise(
-        "PUSH-UPS", EXERCISE_DURAION, rootPath + "pushups.png", "description"),
-    Exercise("PLANK", EXERCISE_DURAION, rootPath + "plank.png", "description"),
-    Exercise(
-        "SITUPS", EXERCISE_DURAION, rootPath + "situps.png", "description"),
     Exercise("JUMPING JACKS", EXERCISE_DURAION, rootPath + "jumping_jacks.png",
-        "description"),
-    Exercise(
-        "BURPEES", EXERCISE_DURAION, rootPath + "burpees.png", "description"),
+        InstructionText.JUMPING_JACKS_INSTRUCTIONS),
+    Exercise("PUSH-UPS", EXERCISE_DURAION, rootPath + "pushups.png",
+        InstructionText.PUSHUP_INSTRUCTIONS),
+    Exercise("BURPEES", EXERCISE_DURAION, rootPath + "burpees.png",
+        InstructionText.BURPEES_INSTRUCTIONS),
+    Exercise("PLANK", EXERCISE_DURAION, rootPath + "plank.png",
+        InstructionText.PLANK_INSTRUCTIONS),
+    Exercise("REVERSE CRUNCHES", EXERCISE_DURAION, rootPath + "situps.png",
+        InstructionText.REVSERSE_CRUNCHES_INSTRUCTIONS),
   ];
 
   final List<Exercise> armList = [

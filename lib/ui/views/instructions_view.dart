@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+import 'package:provider_architecture/core/models/exercise.dart';
+import 'package:provider_architecture/core/shared/constants.dart';
 import 'package:provider_architecture/core/viewmodels/instructions_model.dart';
-import 'package:provider_architecture/ui/shared/app_colors.dart' as prefix0;
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
+import 'package:provider_architecture/ui/shared/text_styles.dart';
 
 class InstructionsView extends StatefulWidget {
   final String categoryName;
@@ -28,13 +29,13 @@ class _InstructionsViewState extends State<InstructionsView>
             primaryColor: primaryColor,
             primaryColorDark: primaryColorDark,
             fontFamily: 'Quicksand',
-            accentColor: prefix0.primaryColor),
+            accentColor: primaryColor),
         home: DefaultTabController(
           length: model.categoryies.length,
           child: Scaffold(
             body: TabBarView(
               controller: model.getController(),
-              children: buildTabViews(),
+              children: buildTabViews(model),
             ),
             appBar: AppBar(
               leading: IconButton(
@@ -42,7 +43,7 @@ class _InstructionsViewState extends State<InstructionsView>
                 onPressed: model.goBack,
               ),
               title: AppBarTitle('Instructions'),
-              backgroundColor: prefix0.primaryColor,
+              backgroundColor: primaryColor,
               bottom: TabBar(
                 controller: model.getController(),
                 indicatorColor: Colors.black,
@@ -58,7 +59,13 @@ class _InstructionsViewState extends State<InstructionsView>
     );
   }
 
-  List<Widget> buildTabViews() => [html, Text('Legs'), Text('Arms')];
+  List<Widget> buildTabViews(InstructionsModel model) {
+    return [
+      buildInstructionsList(FULL_BODY, model),
+      buildInstructionsList(LEG_WORKOUT, model),
+      buildInstructionsList(ARM_WORKOUT, model)
+    ];
+  }
 
   List<Widget> buildTaps() {
     return [
@@ -74,33 +81,50 @@ class _InstructionsViewState extends State<InstructionsView>
     ];
   }
 
-  Widget html = Html(
-    data: """
-        <div>
-          <h1>Demo Page</h1>
-          <p>This is a fantastic product that you should buy!</p>
-          <h3>Features</h3>
-          <ul>
-            <li>It actually works</li>
-            <li>It exists</li>
-            <li>It doesn't cost much!</li>
-          </ul>
-          <h3>Image support:</h3>
-      <p>        
-        <a href='https://google.com'><img alt='Google' src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png' /></a>        
-      </p>
-          <!--You can pretty much put any html in here!-->
-        </div>
-      """,
-    //Optional parameters:
-    backgroundColor: Colors.white70,
-
-    onLinkTap: (url) {
-      // open url in a webview
-    },
-    padding: EdgeInsets.all(10),
-    onImageTap: (src) {
-      print(src);
-    },
-  );
+  buildInstructionsList(String exerciseCategory, InstructionsModel model) {
+    List<Exercise> exerciseList = model.getExercises(exerciseCategory);
+    return ListView(
+        children: exerciseList
+            .map((exercise) => Card(
+                  child: Container(
+                    padding: EdgeInsets.all(16),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              exercise.name,
+                              style: instructionExerciseTitleStyle,
+                            ),
+                            InkWell(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.videocam,
+                                size: 30,
+                                color: primaryColor,
+                              ),
+                            )
+                          ],
+                        ),
+                        Image.asset(
+                          exercise.assetPath,
+                          width: 100,
+                          height: 100,
+                        ),
+                        Expanded(
+                          child: Text(
+                            exercise.description,
+                            textAlign: TextAlign.justify,
+                            style: instructionExerciseDescStyle,
+                          ),
+                        )
+                      ],
+                    ),
+                    width: double.infinity,
+                    height: 300,
+                  ),
+                ))
+            .toList());
+  }
 }
