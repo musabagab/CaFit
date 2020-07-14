@@ -5,6 +5,11 @@
 <li>Star ⭐ the Repo and clone it.</li>
 </ul>
 <p><strong>App Screenshots:</strong>&nbsp;</p>
+![](Screenshots/Screenshot_1594717551_pixel_quite_black_portrait.png.png)
+![](Screenshots/Screenshot_1594717559_pixel_quite_black_portrait.png.png)
+![](Screenshots/Screenshot_1594717567_pixel_quite_black_portrait.png.png)
+![](Screenshots/Screenshot_1594717573_pixel_quite_black_portrait.png.png)
+
 <p>&nbsp;</p>
 <p><strong>Steps to use the Code:</strong></p>
 <p>1 &ndash; Star ⭐ and clone the repo.</p>
