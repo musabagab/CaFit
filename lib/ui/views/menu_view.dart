@@ -10,6 +10,7 @@ class MenuView extends StatelessWidget {
     return BaseView<MenuModel>(
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Center(
               child: Text(
             "Workout Categories",

@@ -2,7 +2,6 @@ import 'package:confetti/confetti.dart';
 import 'package:provider_architecture/core/services/navigation_service.dart';
 import 'package:provider_architecture/core/viewmodels/base_model.dart';
 import 'package:provider_architecture/locator.dart';
-import 'package:provider_architecture/ui/router.dart';
 
 class ExerciseCompletedViewModel extends BaseModel {
   ConfettiController controllerTopCenter;
@@ -16,6 +15,6 @@ class ExerciseCompletedViewModel extends BaseModel {
   }
 
   void goBackToHome() {
-    _navigationService.navigateAndReplace(Router.MENU);
+    _navigationService.navigateToHome();
   }
 }

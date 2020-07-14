@@ -5,8 +5,8 @@ import 'package:provider_architecture/core/shared/constants.dart';
 import 'package:provider_architecture/core/viewmodels/instructions_model.dart';
 import 'package:provider_architecture/ui/shared/app_colors.dart';
 import 'package:provider_architecture/ui/views/base_view.dart';
+import 'package:provider_architecture/ui/widgets/instructions_view_widget/instructions_list.dart';
 import 'package:provider_architecture/ui/widgets/shared/appbar_title.dart';
-import 'package:provider_architecture/ui/shared/text_styles.dart';
 
 class InstructionsView extends StatefulWidget {
   final String categoryName;
@@ -83,48 +83,7 @@ class _InstructionsViewState extends State<InstructionsView>
 
   buildInstructionsList(String exerciseCategory, InstructionsModel model) {
     List<Exercise> exerciseList = model.getExercises(exerciseCategory);
-    return ListView(
-        children: exerciseList
-            .map((exercise) => Card(
-                  child: Container(
-                    padding: EdgeInsets.all(16),
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              exercise.name,
-                              style: instructionExerciseTitleStyle,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Icon(
-                                Icons.videocam,
-                                size: 30,
-                                color: primaryColor,
-                              ),
-                            )
-                          ],
-                        ),
-                        Image.asset(
-                          exercise.assetPath,
-                          width: 100,
-                          height: 100,
-                        ),
-                        Expanded(
-                          child: Text(
-                            exercise.description,
-                            textAlign: TextAlign.justify,
-                            style: instructionExerciseDescStyle,
-                          ),
-                        )
-                      ],
-                    ),
-                    width: double.infinity,
-                    height: 300,
-                  ),
-                ))
-            .toList());
+
+    return InstructionsList(exerciseList, model);
   }
 }

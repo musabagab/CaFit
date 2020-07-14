@@ -4,6 +4,7 @@ import 'package:provider_architecture/core/services/exercies_service.dart';
 import 'package:provider_architecture/core/services/navigation_service.dart';
 import 'package:provider_architecture/core/viewmodels/base_model.dart';
 import 'package:provider_architecture/locator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InstructionsModel extends BaseModel {
   final NavigationService _navigationService = locator<NavigationService>();
@@ -41,5 +42,18 @@ class InstructionsModel extends BaseModel {
 
   List<Exercise> getExercises(String exerciseCategory) {
     return _exericesService.getExercisesList(exerciseCategory);
+  }
+
+  Future launchInBrowser(String videoUrl) async {
+    if (await canLaunch(videoUrl)) {
+      await launch(
+        videoUrl,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      throw 'Could not launch $videoUrl';
+    }
   }
 }

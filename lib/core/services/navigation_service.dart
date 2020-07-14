@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider_architecture/ui/router.dart';
 
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey =
@@ -11,6 +12,11 @@ class NavigationService {
   Future<dynamic> navigateAndReplace(String routeName, {dynamic arguments}) {
     return navigatorKey.currentState
         .pushReplacementNamed(routeName, arguments: arguments);
+  }
+
+  Future<dynamic> navigateToHome() {
+    return navigatorKey.currentState
+        .pushNamedAndRemoveUntil(Router.MENU, (Route<dynamic> route) => false);
   }
 
   goBack() {
