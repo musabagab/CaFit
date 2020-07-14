@@ -2,7 +2,6 @@
 <p>&nbsp;</p>
 <ul>
 <li>App built with Flutter using provider architecture for state management with MVVM</li>
-<li>Star ⭐ the Repo and clone it.</li>
 </ul>
 
 <p>&nbsp;</p>
