@@ -1,7 +1,7 @@
 <p><strong>CaFit Home Workout app with Flutter:</strong></p>
 <p>&nbsp;</p>
 <ul>
-<li>App built with Flutter using provider architecture for state management with MVVM</li>
+<li>App built with Flutter using provider architecture for state management with MVVM.</li>
 </ul>
 
 <p>&nbsp;</p>
