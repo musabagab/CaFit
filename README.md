@@ -10,7 +10,7 @@
 <p>2 &ndash; Download the source code.</p>
 <p>3 &ndash; Extract the code and open it with VSCode or Android studio.</p>
 <p>4 - Get all the packages and run the app.</p>
-<p>For projects, contact me at my email account: <strong>musabapp2019@gmail.com</strong></p>
+<p>For projects, contact me at my email account: <strong>musabapps2019@gmail.com</strong></p>
 
 
 <p><strong>App Screenshots:</strong>&nbsp;</p>
